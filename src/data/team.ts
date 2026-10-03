@@ -14,7 +14,7 @@ export const team: TeamMember[] = [
     specialty:
       "Coiffure, conseil beauté et accompagnement personnalisé.",
     image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=900&q=85",
+      "apropo1.webp",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ export const team: TeamMember[] = [
     specialty:
       "Coupes, brushing, coiffures et mise en forme.",
     image:
-      "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=900&q=85",
+      "apropo2.webp",
   },
   {
     id: 3,
@@ -32,6 +32,6 @@ export const team: TeamMember[] = [
     specialty:
       "Coloration, balayage, mèches et soins capillaires.",
     image:
-      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=85",
+      "apropo3.webp",
   },
 ];

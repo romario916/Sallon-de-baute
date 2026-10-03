@@ -25,7 +25,7 @@ export const services: Service[] = [
     price: 35000,
     category: "Coiffure",
     image:
-      "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=85",
+      "coiffure.webp",
   },
   {
     id: 2,
@@ -36,20 +36,9 @@ export const services: Service[] = [
     price: 25000,
     category: "Coiffure",
     image:
-      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=85",
+      "coiffure1.webp",
   },
-  {
-    id: 3,
-    name: "Coiffage & Mise en forme",
-    description:
-      "Une mise en forme adaptée à votre style pour une finition élégante et naturelle.",
-    duration: "45 min",
-    price: 30000,
-    category: "Coiffure",
-    image:
-      "https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=900&q=85",
-  },
-
+  
   {
     id: 4,
     name: "Coloration complète",
@@ -59,7 +48,7 @@ export const services: Service[] = [
     price: 85000,
     category: "Coloration",
     image:
-      "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=900&q=85",
+      "coloration.webp",
   },
   {
     id: 5,
@@ -70,19 +59,9 @@ export const services: Service[] = [
     price: 120000,
     category: "Coloration",
     image:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=85",
+      "coloration1.webp",
   },
-  {
-    id: 6,
-    name: "Mèches",
-    description:
-      "Une technique personnalisée pour illuminer votre coiffure avec des nuances harmonieuses.",
-    duration: "1h45",
-    price: 100000,
-    category: "Coloration",
-    image:
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=85",
-  },
+  
 
   {
     id: 7,
@@ -93,7 +72,7 @@ export const services: Service[] = [
     price: 45000,
     category: "Soins",
     image:
-      "https://images.unsplash.com/photo-1559599101-f09722fb4948?auto=format&fit=crop&w=900&q=85",
+      "soin.webp",
   },
   {
     id: 8,
@@ -104,19 +83,9 @@ export const services: Service[] = [
     price: 35000,
     category: "Soins",
     image:
-      "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=85",
+      "soin1.webp",
   },
-  {
-    id: 9,
-    name: "Soin réparateur",
-    description:
-      "Un soin ciblé pour accompagner les cheveux fragilisés et améliorer leur aspect.",
-    duration: "45 min",
-    price: 50000,
-    category: "Soins",
-    image:
-      "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=900&q=85",
-  },
+  
 
   {
     id: 10,
@@ -127,7 +96,7 @@ export const services: Service[] = [
     price: 120000,
     category: "Coiffure événementielle",
     image:
-      "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85",
+      "even.webp",
   },
   {
     id: 11,
@@ -138,7 +107,7 @@ export const services: Service[] = [
     price: 80000,
     category: "Coiffure événementielle",
     image:
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=85",
+      "even1.webp",
   },
 
   {
@@ -150,7 +119,7 @@ export const services: Service[] = [
     price: 30000,
     category: "Beauté",
     image:
-      "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=85",
+      "beaute.webp",
   },
   {
     id: 13,
@@ -161,17 +130,7 @@ export const services: Service[] = [
     price: 45000,
     category: "Beauté",
     image:
-      "https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=85",
+      "beaute1.webp",
   },
-  {
-    id: 14,
-    name: "Mise en beauté",
-    description:
-      "Une mise en beauté naturelle et élégante adaptée à votre personnalité et à votre occasion.",
-    duration: "1h",
-    price: 65000,
-    category: "Beauté",
-    image:
-      "https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=900&q=85",
-  },
+  
 ];

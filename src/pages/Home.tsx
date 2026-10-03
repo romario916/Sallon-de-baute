@@ -16,29 +16,24 @@ import Button from "../components/Button";
 import Container from "../components/Container";
 import SectionTitle from "../components/SectionTitle";
 import { openWhatsApp } from "../utils/whatsapp";
+import { clientVideos } from "../data/videos";
 
 const heroImages = [
   {
     image:
-      "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=2000&q=85",
+      "acail2.webp",
     title: "Révélez votre beauté",
     subtitle:
       "Une expérience beauté élégante, personnalisée et pensée pour vous.",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=2000&q=85",
+      "acail1.webp",
     title: "Prenez soin de vous",
     subtitle:
       "Coiffure, soins et beauté dans une atmosphère chaleureuse et raffinée.",
   },
-  {
-    image:
-      "https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=2000&q=85",
-    title: "Votre style, notre passion",
-    subtitle:
-      "Des prestations soignées pour révéler votre personnalité.",
-  },
+  
 ];
 
 const featuredServices = [
@@ -71,32 +66,32 @@ const featuredServices = [
 const galleryImages = [
   {
     image:
-      "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=80",
+      "photo1.webp",
     category: "Coiffure",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=80",
+      "photo2.webp",
     category: "Beauté",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80",
+      "photo3.webp",
     category: "Mise en beauté",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=900&q=80",
+      "photo4.webp",
     category: "Coiffure",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=900&q=80",
+      "photo5.webp",
     category: "Maquillage",
   },
   {
     image:
-      "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=900&q=80",
+      "photo6.webp",
     category: "Style",
   },
 ];
@@ -169,97 +164,106 @@ const Home = () => {
     <div>
       {/* HERO */}
       <section className="relative flex min-h-screen items-center overflow-hidden bg-black">
-        {heroImages.map((slide, index) => (
-          <div
-            key={slide.image}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <img
-              src={slide.image}
-              alt="Salon Vanesa Bauté"
-              className="h-full w-full object-cover"
+  {heroImages.map((slide, index) => (
+    <div
+      key={slide.image}
+      className={`absolute inset-0 transition-opacity duration-1000 ${
+        index === currentSlide ? "opacity-100" : "opacity-0"
+      }`}
+    >
+      {/* Arrière-plan flou : remplit l'espace sans bandes noires */}
+      <img
+        src={slide.image}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full scale-110 object-cover blur-2xl"
+      />
+
+      {/* Image réelle : cover sur mobile, entière sur grand écran */}
+      <img
+        src={slide.image}
+        alt="Salon Vanesa Bauté"
+        className="relative h-full w-full object-cover xl:object-contain"
+      />
+
+      <div className="absolute inset-0 bg-black/55" />
+    </div>
+  ))}
+
+  <Container className="relative z-10 pt-20">
+    <div className="max-w-3xl">
+      <p className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-pink-300">
+        Beauty • Hair • Wellness
+      </p>
+
+      <h1 className="font-serif text-5xl font-bold leading-tight text-white sm:text-6xl lg:text-8xl">
+        {heroImages[currentSlide].title}
+      </h1>
+
+      <p className="mt-6 max-w-xl text-lg leading-8 text-white/80 sm:text-xl">
+        {heroImages[currentSlide].subtitle}
+      </p>
+
+      <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+        <Button onClick={() => openWhatsApp()}>
+          <CalendarCheck size={18} className="mr-2" />
+          Réserver
+        </Button>
+
+        <Link
+          to="/services"
+          className="inline-flex items-center justify-center rounded-full border border-white/70 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-black"
+        >
+          Découvrir nos services
+          <ArrowRight size={18} className="ml-2" />
+        </Link>
+      </div>
+    </div>
+  </Container>
+
+  {/* Slider controls */}
+  <div className="absolute bottom-10 left-0 right-0 z-10">
+    <Container>
+      <div className="flex items-center justify-between">
+        <div className="flex gap-2">
+          {heroImages.map((slide, index) => (
+            <button
+              key={slide.image}
+              type="button"
+              aria-label={`Afficher la diapositive ${index + 1}`}
+              onClick={() => setCurrentSlide(index)}
+              className={`h-1 rounded-full transition-all ${
+                index === currentSlide
+                  ? "w-10 bg-pink-500"
+                  : "w-5 bg-white/50"
+              }`}
             />
-
-            <div className="absolute inset-0 bg-black/55" />
-          </div>
-        ))}
-
-        <Container className="relative z-10 pt-20">
-          <div className="max-w-3xl">
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.35em] text-pink-300">
-              Beauty • Hair • Wellness
-            </p>
-
-            <h1 className="font-serif text-5xl font-bold leading-tight text-white sm:text-6xl lg:text-8xl">
-              {heroImages[currentSlide].title}
-            </h1>
-
-            <p className="mt-6 max-w-xl text-lg leading-8 text-white/80 sm:text-xl">
-              {heroImages[currentSlide].subtitle}
-            </p>
-
-            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <Button onClick={() => openWhatsApp()}>
-                <CalendarCheck size={18} className="mr-2" />
-                Réserver
-              </Button>
-
-              <Link
-                to="/services"
-                className="inline-flex items-center justify-center rounded-full border border-white/70 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-black"
-              >
-                Découvrir nos services
-                <ArrowRight size={18} className="ml-2" />
-              </Link>
-            </div>
-          </div>
-        </Container>
-
-        {/* Slider controls */}
-        <div className="absolute bottom-10 left-0 right-0 z-10">
-          <Container>
-            <div className="flex items-center justify-between">
-              <div className="flex gap-2">
-                {heroImages.map((slide, index) => (
-                  <button
-                    key={slide.image}
-                    type="button"
-                    aria-label={`Afficher la diapositive ${index + 1}`}
-                    onClick={() => setCurrentSlide(index)}
-                    className={`h-1 rounded-full transition-all ${
-                      index === currentSlide
-                        ? "w-10 bg-pink-500"
-                        : "w-5 bg-white/50"
-                    }`}
-                  />
-                ))}
-              </div>
-
-              <div className="hidden gap-2 sm:flex">
-                <button
-                  type="button"
-                  onClick={previousSlide}
-                  aria-label="Image précédente"
-                  className="rounded-full border border-white/30 p-3 text-white transition hover:bg-white hover:text-black"
-                >
-                  <ChevronLeft size={20} />
-                </button>
-
-                <button
-                  type="button"
-                  onClick={nextSlide}
-                  aria-label="Image suivante"
-                  className="rounded-full border border-white/30 p-3 text-white transition hover:bg-white hover:text-black"
-                >
-                  <ChevronRight size={20} />
-                </button>
-              </div>
-            </div>
-          </Container>
+          ))}
         </div>
-      </section>
+
+        <div className="hidden gap-2 sm:flex">
+          <button
+            type="button"
+            onClick={previousSlide}
+            aria-label="Image précédente"
+            className="rounded-full border border-white/30 p-3 text-white transition hover:bg-white hover:text-black"
+          >
+            <ChevronLeft size={20} />
+          </button>
+
+          <button
+            type="button"
+            onClick={nextSlide}
+            aria-label="Image suivante"
+            className="rounded-full border border-white/30 p-3 text-white transition hover:bg-white hover:text-black"
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
+      </div>
+    </Container>
+  </div>
+</section>
 
       {/* INTRODUCTION */}
       <section className="bg-white py-24 lg:py-32">
@@ -267,11 +271,11 @@ const Home = () => {
           <div className="grid items-center gap-14 lg:grid-cols-2">
             <div className="relative">
               <div className="overflow-hidden rounded-3xl">
-                <img
-                  src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=85"
-                  alt="Espace beauté Vanesa Bauté"
-                  className="h-[500px] w-full object-cover"
-                />
+               <img
+  src="/dinese2.webp"
+  alt="Espace beauté Vanesa Bauté"
+  className="h-auto w-full object-contain"
+/>
               </div>
 
               <div className="absolute -bottom-6 -right-4 rounded-2xl bg-black p-6 text-white shadow-2xl sm:-right-6">
@@ -319,6 +323,69 @@ const Home = () => {
           </div>
         </Container>
       </section>
+
+// CLIENT VIDEOS
+      <section className="bg-neutral-50 py-24 lg:py-32">
+        <Container>
+          <SectionTitle
+            eyebrow="Témoignages"
+            title="Ce que nos clientes disent"
+            description="Découvrez les expériences de nos clientes et comment elles ont apprécié nos services."
+          />
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {clientVideos.map((video) => (
+              <a
+                key={video.name}
+                href={video.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Voir la vidéo de ${video.name} sur Facebook`}
+                className="group relative block overflow-hidden rounded-3xl bg-black shadow-sm transition duration-500 hover:-translate-y-2 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-600 focus-visible:ring-offset-4"
+              >
+                <div className="relative aspect-[4/5] overflow-hidden">
+                  <img
+                    src={video.image}
+                    alt={video.name}
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  />
+
+                  <div className="absolute inset-0 bg-black/20 transition duration-500 group-hover:bg-black/40" />
+
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-pink-600 text-white shadow-xl transition duration-500 group-hover:scale-110">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="ml-1 h-7 w-7"
+                        aria-hidden="true"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <span className="text-xs font-semibold uppercase tracking-widest text-white/70">
+                      Témoignage cliente
+                    </span>
+
+                    <h3 className="mt-1 text-xl font-bold text-white">
+                      {video.name}
+                    </h3>
+
+                    <p className="mt-2 text-sm text-white/80">
+                      {video.description}
+                    </p>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+
 
       {/* SERVICES */}
       <section className="bg-neutral-50 py-24 lg:py-32">

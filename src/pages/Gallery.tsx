@@ -156,9 +156,9 @@ const Gallery = () => {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div className="overflow-hidden rounded-3xl">
               <img
-                src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+                src="galeryb.webp"
                 alt="Salon Vanesa Bauté"
-                className="h-[450px] w-full object-cover"
+                className="h-[450px] w-full object-contain transition duration-700 hover:scale-110"
               />
             </div>
 

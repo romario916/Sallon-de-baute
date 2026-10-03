@@ -80,9 +80,9 @@ const About = () => {
             <div className="relative">
               <div className="overflow-hidden rounded-3xl">
                 <img
-                  src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85"
+                  src="apropo.webp"
                   alt="Salon Vanesa Bauté"
-                  className="h-[500px] w-full object-cover"
+                  className="h-[500px] w-full object-contain"
                 />
               </div>
 
