@@ -110,67 +110,64 @@ const Services = () => {
       </section>
 
       {/* FILTRES */}
-      <section className="border-b border-neutral-100 bg-white py-8">
-        <Container>
-          <div className="flex flex-wrap justify-center gap-3">
-            {categories.map((category) => {
-              const isActive =
-                activeCategory === category.value;
+    <section className="border-b border-neutral-100 bg-white py-6 sm:py-8">
+  <Container>
+    <div className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:justify-center sm:overflow-visible">
+      {categories.map((category) => {
+        const isActive = activeCategory === category.value;
 
-              return (
-                <button
-                  key={category.value}
-                  type="button"
-                  onClick={() =>
-                    setActiveCategory(category.value)
-                  }
-                  className={`rounded-full px-5 py-2.5 text-sm font-semibold transition ${
-                    isActive
-                      ? "bg-pink-600 text-white shadow-lg shadow-pink-600/20"
-                      : "bg-neutral-100 text-neutral-700 hover:bg-black hover:text-white"
-                  }`}
-                >
-                  {category.name}
-                </button>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
+        return (
+          <button
+            key={category.value}
+            type="button"
+            onClick={() => setActiveCategory(category.value)}
+            className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300 ${
+              isActive
+                ? "bg-pink-600 text-white shadow-md shadow-pink-600/20"
+                : "bg-neutral-100 text-neutral-700 hover:bg-pink-50 hover:text-pink-600"
+            }`}
+          >
+            {category.name}
+          </button>
+        );
+      })}
+    </div>
+  </Container>
+</section>
 
-      {/* SERVICES */}
-      <section className="bg-neutral-50 py-20 lg:py-28">
-        <Container>
-          {activeCategory !== "Tous" && (
-            <div className="mx-auto mb-12 max-w-2xl text-center">
-              <h2 className="font-serif text-3xl font-bold text-black">
-                {activeCategory}
-              </h2>
+{/* SERVICES */}
+<section className="bg-neutral-50 py-16 sm:py-20 lg:py-28">
+  <Container>
+    {activeCategory !== "Tous" && (
+      <div className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
+        <h2 className="font-serif text-2xl font-bold text-black sm:text-3xl">
+          {activeCategory}
+        </h2>
 
-              <p className="mt-3 leading-7 text-neutral-600">
-                {categoryDescriptions[activeCategory]}
-              </p>
-            </div>
-          )}
+        <p className="mt-3 text-sm leading-7 text-neutral-600 sm:text-base">
+          {categoryDescriptions[activeCategory]}
+        </p>
+      </div>
+    )}
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {filteredServices.map((service) => (
-              <ServiceCard
-                key={service.id}
-                service={service}
-              />
-            ))}
-          </div>
+    <div className="grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {filteredServices.map((service) => (
+        <ServiceCard
+          key={service.id}
+          service={service}
+        />
+      ))}
+    </div>
 
-          {filteredServices.length === 0 && (
-            <div className="rounded-3xl bg-white py-16 text-center">
-              <p className="text-neutral-500">
-                Aucun service disponible dans cette catégorie.
-              </p>
-            </div>
-          )}
-        </Container>
-      </section>
+    {filteredServices.length === 0 && (
+      <div className="rounded-3xl bg-white px-6 py-16 text-center shadow-sm">
+        <p className="text-sm text-neutral-500 sm:text-base">
+          Aucun service disponible dans cette catégorie.
+        </p>
+      </div>
+    )}
+  </Container>
+</section>
 
       {/* POURQUOI NOUS */}
       <section className="bg-white py-20 lg:py-28">

@@ -21,28 +21,30 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
   return (
     <article className="group overflow-hidden rounded-3xl bg-white shadow-sm transition duration-500 hover:-translate-y-2 hover:shadow-2xl">
       {/* Image */}
-      <div className="relative h-64 overflow-hidden">
-        <img
-          src={service.image}
-          alt={service.name}
-          className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
-        />
+      {/* Image */}
+<div className="relative h-64 overflow-hidden bg-neutral-100">
+  <img
+    src={service.image}
+    alt={service.name}
+    className="h-full w-full object-contain"
+    loading="lazy"
+  />
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+  {/* Overlay léger */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent" />
 
-        {/* Catégorie */}
-        <span className="absolute left-5 top-5 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-green-700 shadow-sm">
-          {service.category}
-        </span>
+  {/* Catégorie */}
+  <span className="absolute left-5 top-5 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-green-700 shadow-sm">
+    {service.category}
+  </span>
 
-        {/* Nom sur l'image */}
-        <div className="absolute bottom-5 left-5 right-5">
-          <h3 className="font-serif text-2xl font-bold text-white">
-            {service.name}
-          </h3>
-        </div>
-      </div>
+  {/* Nom sur l'image */}
+  <div className="absolute bottom-5 left-5 right-5">
+    <h3 className="font-serif text-2xl font-bold text-white">
+      {service.name}
+    </h3>
+  </div>
+</div>
 
       {/* Contenu */}
       <div className="p-6">
